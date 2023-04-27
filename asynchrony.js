@@ -23,8 +23,16 @@ let nextMinute = {
     12: ' 12 minutes for now',
     13: ' 13 minutes for now',
     14: ' 14 minutes for now',
-
-
+    15: ' 15 minutes for now',
+    16: ' 16 minutes for now',
+    17: ' 17 minutes for now',
+    18: ' 18 minutes for now',
+    19: ' 19 minutes for now',
+    20: ' 20 minutes for now',
+    21: ' 21 minutes for now',
+    22: ' 22 minutes for now',
+    23: ' 23 minutes for now',
+    24: ' 24 minutes for now',
 }
 
 setTimeout( function() {
