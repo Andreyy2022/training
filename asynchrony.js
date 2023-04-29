@@ -23,13 +23,32 @@ btn.innerHTML = 'time period';
 PD.append(btn);
 
 btn.addEventListener('click', function() {
-    if (PT.innerHTML <= 15) {
+    if (PT.innerHTML > 0 & PT.innerHTML <= 15) {
         alert('time for jumping');
-    } else if (PT.innerHTML <= 30) {
+    } 
+    if (PT.innerHTML > 15 & PT.innerHTML <= 30) {
         alert('time for wathing TV');
-    } else if (PT.innerHTML <= 45) {
+    } 
+    if (PT.innerHTML > 30 & PT.innerHTML <= 45) {
         alert('time for reading a book');
-    } else {
-        alert('time for rest');
+    } 
+    if (PT.innerHTML > 45 & PT.innerHTML < 0) {
+        alert('time for seeping');
+    }
+});
+
+if (PT.innerHTML != undefined & PT.innerHTML != 0 & PT.innerHTML == 15 || PT.innerHTML == 30 || PT.innerHTML == 45 || PT.innerHTML == 0) {
+    alert('time for 5 minute rest');
+}
+
+let impMin = document.querySelector('#miutes');
+let impSec = document.querySelector('#seconds');
+let impEv = document.querySelector('#event');
+let btnEv = document.querySelector('#btnEvent');
+let PR = document.querySelector('#remind');
+
+btnEv.addEventListener('click', function() {
+    if (impMin.value == startMinutes & impSec.value == startSeconds) {
+        alert(impEv.value);
     }
 });
