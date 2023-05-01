@@ -1,6 +1,6 @@
 'use strict';
 
-let PT = document.querySelector('#show_time');
+let SPT = document.querySelector('#show_time');
 let PD = document.querySelector('#show_period');
 
 let startTime = new Date();
@@ -12,12 +12,12 @@ let diffSec = 60 - startSeconds;
 console.log(diffSec);
 
 setTimeout( function min() {
-    PT.innerHTML = new Date().getMinutes() + ' minutes for now';
+    SPT.innerHTML = new Date().getMinutes();
 
         setTimeout( function min1() {
-            PT.innerHTML = new Date().getMinutes() + ' minutes for now';
+            SPT.innerHTML = new Date().getMinutes();
             
-            if (PT.innerHTML == 15 || PT.innerHTML == 30 || PT.innerHTML == 45 || PT.innerHTML == 0) {
+            if (SPT.innerHTML == 15 || SPT.innerHTML == 30 || SPT.innerHTML == 45 || SPT.innerHTML == 0) {
                 alert('time for 5 minute rest');
             }
 
@@ -27,28 +27,22 @@ setTimeout( function min() {
 
 }, diffSec * 1000 );
 
-let btn = document.createElement('button');
-btn.innerHTML = 'time period';
-PD.append(btn);
+let btnP = document.querySelector('#btnPeriod');
 
-btn.addEventListener('click', function() {
-    if (PT.innerHTML > 0 & PT.innerHTML <= 15) {
-        alert('time for jumping');
+btnP.addEventListener('click', function() {
+    if (SPT.textContent > 0 & SPT.textContent <= 15) {
+        PD.innerHTML = 'time for jumping';
     } 
-    if (PT.innerHTML > 15 & PT.innerHTML <= 30) {
-        alert('time for wathing TV');
+    if (SPT.textContent > 15 & SPT.textContent <= 30) {
+        PD.innerHTML = 'time for wathing TV';
     } 
-    if (PT.innerHTML > 30 & PT.innerHTML <= 45) {
-        alert('time for reading a book');
+    if (SPT.textContent > 30 & SPT.textContent <= 45) {
+        PD.innerHTML = 'time for reading a book';
     } 
-    if (PT.innerHTML > 45 & PT.innerHTML < 0) {
-        alert('time for seeping');
+    if (SPT.textContent > 45 & SPT.textContent <= 59) {
+        PD.innerHTML = 'time for seeping';
     }
 });
-
-//if (PT.innerHTML == 15 || PT.innerHTML == 30 || PT.innerHTML == 45 || PT.innerHTML == 0) {
-//    alert('time for 5 minute rest');
-//}
 
 let impMin = document.querySelector('#miutes');
 let impSec = document.querySelector('#seconds');
