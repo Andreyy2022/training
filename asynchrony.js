@@ -14,7 +14,16 @@ console.log(diffSec);
 setTimeout( function min() {
     PT.innerHTML = new Date().getMinutes() + ' minutes for now';
 
-        setInterval( min, 60 * 1000 );
+        setTimeout( function min1() {
+            PT.innerHTML = new Date().getMinutes() + ' minutes for now';
+            
+            if (PT.innerHTML == 15 || PT.innerHTML == 30 || PT.innerHTML == 45 || PT.innerHTML == 0) {
+                alert('time for 5 minute rest');
+            }
+
+            setTimeout( min1, 60*1000);
+
+        }, 60 * 1000 );
 
 }, diffSec * 1000 );
 
@@ -37,9 +46,9 @@ btn.addEventListener('click', function() {
     }
 });
 
-if (PT.innerHTML != undefined & PT.innerHTML != 0 & PT.innerHTML == 15 || PT.innerHTML == 30 || PT.innerHTML == 45 || PT.innerHTML == 0) {
-    alert('time for 5 minute rest');
-}
+//if (PT.innerHTML == 15 || PT.innerHTML == 30 || PT.innerHTML == 45 || PT.innerHTML == 0) {
+//    alert('time for 5 minute rest');
+//}
 
 let impMin = document.querySelector('#miutes');
 let impSec = document.querySelector('#seconds');
