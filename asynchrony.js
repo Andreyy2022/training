@@ -6,8 +6,8 @@ let promise = new Promise((resolve, reject) => {
     }, 2000);
 });
 
-promise.then(function(result) {
-    console.log(result);
-}, function(error) {
-    console.log(error);
-})
+promise.catch(
+    function(error) {
+        console.log(error);
+    }
+)
