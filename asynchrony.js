@@ -2,12 +2,16 @@
 
 let promise = new Promise((resolve, reject) => {
     setTimeout(function() {
-        reject(new Error('oh, my God!'));
-    }, 2000);
+        let isError = false;
+
+        if (!isError) {
+            resolve([1, 2, 3, 4, 5]);
+        } else {
+            reject('Error has happenes');
+        }
+    }, 3000);
 });
 
-promise.catch(
-    function(error) {
-        console.log(error);
-    }
-)
+setInterval(function() {
+    console.log(promise);
+}, 1000);
