@@ -2,28 +2,35 @@
 
 let promise = new Promise((resolve, reject) => {
     setTimeout(function() {
-        resolve('(.)(.)');
+        reject('error!');
     }, 3000);
 });
 
 promise.then(
     function(result) {
         console.log(result);
-        return result + ' ! ';
-    }
-).then(
-    function(result) {
-        return new Promise((resolve, reject) => {
-            resolve(result + '3');
-        });
+        return result +'1';
     }
 ).then(
     function(result) {
         console.log(result);
-        return result + ' :) ';
+        return result + '2';
+    }
+).then(
+    function(result) {
+        if (ok) {
+            return result + '3';
+        } else {
+            throw new Error('again error');
+        }
     }
 ).then(
     function(result) {
         console.log(result);
+        return result + '4';
+    }
+). catch(
+    function(error) {
+        console.log(error);
     }
 )
