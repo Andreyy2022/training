@@ -8,17 +8,22 @@ let promise = new Promise((resolve, reject) => {
 
 promise.then(
     function(result) {
-    console.log(result);
-    return result + ' ! ';
-}).then(
+        console.log(result);
+        return result + ' ! ';
+    }
+).then(
     function(result) {
-    console.log(result);
-    return result + ' :) ';
-}).then(
+        return new Promise((resolve, reject) => {
+            resolve(result + '3');
+        });
+    }
+).then(
     function(result) {
-    console.log(result);
-    return result + ' !! ';
-}).then(
+        console.log(result);
+        return result + ' :) ';
+    }
+).then(
     function(result) {
-    console.log(result);
-});
+        console.log(result);
+    }
+)
