@@ -1,11 +1,21 @@
 'use strict';
 
-let promises = [
-    new Promise( resolve => setTimeout(() => resolve(1), 1000) ),
-    new Promise( resolve => setTimeout(() => resolve(2), 2000) ),
-    new Promise( resolve => setTimeout(() => resolve(3), 3000) )
-];
+function randoms() {
+    return Math.floor(Math.random() * 11);
+}
 
-Promise.all(promises).then(function(res) {
-    console.log(res);
-})
+function complex() {
+    return new  Promise( resolve => setTimeout( resolve(randoms()), randoms() ) );
+}
+
+let promises = [];
+
+for (let i = 1; i <= 10; i++) {
+    promises.push(complex());
+}
+
+Promise.all(promises).then(
+    function(res) {
+        console.log(res);
+    }
+);
