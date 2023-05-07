@@ -5,7 +5,7 @@ function randoms() {
 }
 
 function complex() {
-    return new  Promise( resolve => setTimeout( resolve(randoms()), randoms() ) );
+    return new  Promise( resolve => setTimeout(() => resolve(randoms()), randoms() * 1000 ) );
 }
 
 let promises = [];
