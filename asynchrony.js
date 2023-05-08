@@ -6,13 +6,16 @@ function fun(num) {
             setTimeout(function() {
                 resolve(num * num);
             }, 3000);
-        }
-        );
-    } else {
+        });
+    } else if (num === 0) {
         return Promise.resolve(0);
+    } else {
+        return Promise.reject('some error');
     }
 }
 
-fun(0).then(function(res) {
-    console.log(res);
-})
+fun(-3).catch(
+    function(res) {
+        console.log(res);
+    }
+)
