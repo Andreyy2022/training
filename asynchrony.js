@@ -1,21 +1,22 @@
 'use strict';
 
-function fun(num) {
-    if (num > 0) {
-        return new Promise(function(resolve) {
-            setTimeout(function() {
-                resolve(num * num);
-            }, 3000);
+function loadImage(path) {
+    return new Promise(function(resolve, reject) {
+        let image = document.createElement('img');
+        image.src = path;
+
+        image.addEventListener('load', function() {
+            resolve(image);
         });
-    } else if (num === 0) {
-        return Promise.resolve(0);
-    } else {
-        return Promise.reject('some error');
-    }
+
+        image.addEventListener('error', function() {
+            reject(new Error('image " ' + path + ' " error'));
+        });
+    });
 }
 
-fun(-3).catch(
-    function(res) {
-        console.log(res);
-    }
-)
+loadImage('./tree.png').then(function(image) {
+    document.body.appendChild(image);
+}).catch(function(error) {
+    console.log(error);
+})
