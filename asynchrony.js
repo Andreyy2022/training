@@ -17,5 +17,12 @@ for (let i = 1; i <= 10; i++) {
 Promise.all(promises).then(
     function(res) {
         console.log(res);
+        
+        let sum = 0;
+        for (let elem of res) {
+            sum += elem;
+        }
+
+        console.log(sum);
     }
 );
