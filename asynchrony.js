@@ -2,9 +2,7 @@
 
 let paths = ['tree.png', 'crocodile.png', 'Warface_sample.jpg'];
 
-function loadImages(paths) {
-    let promises;
-    return promises = [
+let promises = [
         new Promise(function(resolve, reject) {
             let image1 = document.createElement('img');
             image1.src = paths[0];
@@ -44,9 +42,9 @@ function loadImages(paths) {
             });
         })
     ]
-}
 
-loadImages(paths).Promise.all(promises).then(function(res) {
+
+Promise.all(promises).then(function(res) {
     for (let elem of res) {
         document.body.appendChild(elem);
     }
