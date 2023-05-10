@@ -1,11 +1,23 @@
 'use strict';
 
-let promise = new Promise(function(resolve, reject) {
-    window.addEventListener('DOMContentLoaded', function() {
-        resolve('DOM loaded');
-    });
-});
+function getSmth(num) {
+    if (num > 0) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(num * num);
+            }, 2000);
+        });
+    } else {
+        return Promise.reject('error !');
+    }
+}
 
-promise.then(function(res) {
-    console.log(res);
-})
+function func() {
+    getSmth(0).then((res) => {
+        console.log(res);
+    }). catch((err) => {
+        console.log(err);
+    });
+}
+
+func();
