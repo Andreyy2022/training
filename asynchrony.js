@@ -2,21 +2,23 @@
 
 function getSmth(num) {
     return new Promise((resolve, reject) => {
+        if (num < 10) {
         setTimeout(() => {
             resolve(num * num);
         }, 3000);
+        } else {
+            reject('error !');
+        } 
     });
 }
 
 async function func() {
-    let arr = [1, 2, 3, 4, 5];
-    let sum = 0;
-
-    for (let elem of arr) {
-        sum += await getSmth(elem);
+    try {
+        let res = await getSmth(12);
+        console.log(res);
+    } catch(err) {
+        console.log(err);
     }
-
-    console.log(sum);
 }
 
 func();
