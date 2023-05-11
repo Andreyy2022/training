@@ -4,7 +4,7 @@ function getSmth(num) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(num * num);
-        });
+        }, 3000);
     });
 }
 
