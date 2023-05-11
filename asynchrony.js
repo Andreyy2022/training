@@ -8,14 +8,15 @@ function getSmth(num) {
     });
 }
 
-function func() {
-    getSmth(2).then((res1) => {
-        getSmth(res1).then((res2) => {
-            getSmth(res2).then((res3) => {
-                console.log(res3);
-            })
-        })
-    })
+async function func() {
+    let arr = [1, 2, 3, 4, 5];
+    let sum = 0;
+
+    for (let elem of arr) {
+        sum += await getSmth(elem);
+    }
+
+    console.log(sum);
 }
 
 func();
