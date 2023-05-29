@@ -1,19 +1,30 @@
 'use strict';
 
-function narcissistic(value) {
-    let valStr = String(value);
-
+let decodeMorse = function(morseCode){
+    // Your code here
+    // You can use MORSE_CODE[morse]
     
-    let sum = 0;
-    for (let i = 0; i < valStr.length; i++) {
-      sum += valStr[i] ** valStr.length;
+    let resultWords = [];
+    
+    let arrMorseWords = morseCode.split('   ');
+    for (let MorseLetter of arrMorseWords) {
+      let arrMorseLetters = MorseLetter.split(' ');
+      
+      let resultLetters = [];
+      for (let i = 0; i < arrMorseLetters.length; i++) {
+        if (MORSE_CODE[arrMorseLetters[i]]) {
+          resultLetters.push(arrMorseLetters[i]);
+          
+          if (i == arrMorseLetters.length - 1) {
+            resultLetters.push(' ');
+          }
+        }
+      }
+      
+      resultWords.push(resultLetters);
     }
-
-    if (sum == value) {
-      return console.log(true);
-    } else {
-      return console.log(false);
-    }
+    
+    return resultWords.join(' ');
   }
 
-  narcissistic(153);
+  decodeMorse('.... . -.--   .--- ..- -.. .');
