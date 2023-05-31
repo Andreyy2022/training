@@ -19,7 +19,7 @@ let decodeMorse = function(morseCode){
             resultLetters.push(' ');
           }
         }
-      }
+      } 
       
       resultWords.push(resultLetters);
     }
