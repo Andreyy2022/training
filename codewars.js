@@ -1,16 +1,38 @@
 'use strict';
 
+let A = [1,2,2,3,3,3,4,3,3,3,2,2,1];
+
 function findOdd(A) {
   //happy coding!
-  return 0;
+    
+  return checkOdds( checkElems(A) );
 }
 
-function (arr) {
-  let clon = 0;
+function checkElems(arr) {
+  let objElems = {};
   
-  for (let i = 0; i < arr.length; i++) {
-    if ()
-    
-    clon += arr[i];
+  for (let elem of arr) {
+    if (objElems[elem] === undefined) {
+      objElems[elem] = 1;
+    } else {
+      objElems[elem]++;
+    }
   }
+  
+  console.log(objElems);
+  return objElems;
 }
+
+function checkOdds(obj) {
+  let result;
+
+  for (let key in obj) {
+    if (obj[key] % 2 != 0) {
+      result = key;
+    }
+  }
+
+  return result;
+}
+
+console.log(findOdd(A));
