@@ -1,38 +1,20 @@
 'use strict';
 
-let A = [1,2,2,3,3,3,4,3,3,3,2,2,1];
-
-function findOdd(A) {
-  //happy coding!
-    
-  return checkOdds( checkElems(A) );
+function isPrime(num) {
+  //TODO
+  if (num < 2) {
+    return false;
+  } else {
+    return prime(num);
+  }
 }
 
-function checkElems(arr) {
-  let objElems = {};
-  
-  for (let elem of arr) {
-    if (objElems[elem] === undefined) {
-      objElems[elem] = 1;
-    } else {
-      objElems[elem]++;
+function prime(num) {
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false;
     }
   }
   
-  console.log(objElems);
-  return objElems;
+  return true;
 }
-
-function checkOdds(obj) {
-  let result;
-
-  for (let key in obj) {
-    if (obj[key] % 2 != 0) {
-      result = key;
-    }
-  }
-
-  return result;
-}
-
-console.log(findOdd(A));
