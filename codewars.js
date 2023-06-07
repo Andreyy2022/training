@@ -1,20 +1,21 @@
 'use strict';
 
-function isPrime(num) {
-  //TODO
-  if (num < 2) {
-    return false;
-  } else {
-    return prime(num);
-  }
+function spinWords(string){
+  //TODO Have fun :)
+  
+  let arrString = string.split(' ');
+  
+  for (let i = 0; i < arrString.length; i++) {
+    if (arrString[i].length >= 5) {
+      arrString[i] = spin(arrString[i]);
+     }
+   }
+  
+  return arrString.join(' ');
 }
 
-function prime(num) {
-  for (let i = 2; i * i <= num; i++) {
-    if (num % i === 0) {
-      return false;
-    }
-  }
-  
-  return true;
+function spin(word) {
+  return word.split('').reverse().join('');
 }
+
+console.log( spinWords('Hey fellow warriors') );
