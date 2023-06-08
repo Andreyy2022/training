@@ -1,21 +1,22 @@
 'use strict';
 
-function spinWords(string){
-  //TODO Have fun :)
+function count(string) {
+  // TODO
+  let arrString = string.split('');
   
-  let arrString = string.split(' ');
-  
-  for (let i = 0; i < arrString.length; i++) {
-    if (arrString[i].length >= 5) {
-      arrString[i] = spin(arrString[i]);
-     }
-   }
-  
-  return arrString.join(' ');
+  return getObjCount(arrString);;
 }
 
-function spin(word) {
-  return word.split('').reverse().join('');
+function getObjCount(arr) {
+  let objCount = {};
+  
+  for (let elem of arr) {
+    if (objCount[elem] === undefined) {
+      objCount[elem] = 1;
+    } else {
+      objCount[elem]++;
+    }
+  }
+  
+  return objCount;
 }
-
-console.log( spinWords('Hey fellow warriors') );
