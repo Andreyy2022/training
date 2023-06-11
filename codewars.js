@@ -1,18 +1,18 @@
 'use strict';
 
-let a = [121, 144, 19, 161, 19, 144, 19, 11];
-let b = [121, 14641, 20736, 361, 25921, 361, 20736, 361];
-
-function comp(array1, array2){
-  if (array1 === null || array2 === null || array1.length !== array2.length) {
-    return false;
-  }
-
-  return array1.sort( (a, b) => b - a ).toString() === array2.sort( (a,b) => b - a ).map( c => sqrtElem(c) ).toString();
+function solution(number){
+  // convert the number to a roman numeral
+  arabic.map( function(value, index) {
+    while(number >= value) {
+      result += roman[index];
+      number -= value;
+    }
+  } );
+  return result;
 }
 
-function sqrtElem(elem) {
-  return Math.sqrt(elem);
-}
+  let result = '';
+  let arabic = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  let roman = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
 
-console.log(comp(a, b));
+  console.log(solution(1000));
