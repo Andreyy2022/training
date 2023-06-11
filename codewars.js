@@ -1,18 +1,22 @@
 'use strict';
 
-function solution(number){
-  // convert the number to a roman numeral
-  arabic.map( function(value, index) {
-    while(number >= value) {
-      result += roman[index];
-      number -= value;
+function isPangram(string){
+  let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  
+  let stringUpper = string.toUpperCase().replaceAll(' ', '');
+  console.log(stringUpper);
+  console.log(alphabet.includes('A'));
+
+  for (let elem of alphabet) {
+
+    console.log(stringUpper.includes(elem));
+
+    if (!stringUpper.includes(elem)) {
+      return false;
     }
-  } );
-  return result;
+  } 
+  
+  return true;
 }
 
-  let result = '';
-  let arabic = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-  let roman = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
-
-  console.log(solution(1000));
+console.log(isPangram('The quick brown fox jumps over the lazy dog'));
