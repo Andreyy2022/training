@@ -1,22 +1,25 @@
 'use strict';
 
-function isPangram(string){
-  let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+function findMissingLetter(array)
+{
+  let alphabetUp = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  let alphabetLow = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+  let partAlph;
+
+  if (alphabetUp.includes(array[0])) {
+    partAlph = alphabetUp.slice( alphabetUp.indexOf(array[0]), alphabetUp.indexOf(array[array.length-1]) + 1 );
+  } else {
+    partAlph = alphabetLow.slice( alphabetLow.indexOf(array[0]), alphabetLow.indexOf(array[(array.length-1)]) + 1 );
+  }
   
-  let stringUpper = string.toUpperCase().replaceAll(' ', '');
-  console.log(stringUpper);
-  console.log(alphabet.includes('A'));
+  for (let elem of partAlph) {
+    if ( !array.includes(elem) ) {
 
-  for (let elem of alphabet) {
-
-    console.log(stringUpper.includes(elem));
-
-    if (!stringUpper.includes(elem)) {
-      return false;
+      return elem;  
     }
-  } 
-  
-  return true;
+  }
+
 }
 
-console.log(isPangram('The quick brown fox jumps over the lazy dog'));
+console.log( findMissingLetter(['a','b','c','d','f']) );
