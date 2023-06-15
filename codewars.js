@@ -2,17 +2,18 @@
 
 function findUniq(arr) {
   // do magic
-  arr.sort((a, b) => b - a);
-  console.log(arr);
+  let ARR = arr.join().toUpperCase().split(',');
+  console.log(ARR);
 
-  if (arr[0] !== arr[1]) {
-    return arr[0];
-  } else {
-    return arr[arr.length - 1];
+  for (let i = 0; i < ARR.length; i++) {
+    for (let j = 0; j < ARR[i].length; j++) {
+
+      if (!ARR[i + 1].includes(ARR[i][j])) {
+        let index = ARR.indexOf(ARR[i + 1]);
+        return arr[index];
+      }
+    }
   }
 }
 
-console.log(findUniq([
-  4, 4, 4, 4,
-  4, 4, 4, 3
-]));
+console.log(findUniq([ 'abc', 'acb', 'bac', 'foo', 'bca', 'cab', 'cba' ]));
