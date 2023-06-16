@@ -10,10 +10,17 @@ function findUniq(arr) {
 
       if (!ARR[i + 1].includes(ARR[i][j])) {
         let index = ARR.indexOf(ARR[i + 1]);
+        
+          if (i != ARR.length - 2)
+            if (!ARR[i + 2].includes(ARR[i][j])) {
+              return arr[0];
+            }
+        
         return arr[index];
       }
+
     }
   }
 }
 
-console.log(findUniq([ 'abc', 'acb', 'bac', 'foo', 'bca', 'cab', 'cba' ]));
+console.log(findUniq([ 'SILVIA', 'VASILI', 'VICTOR' ]));
