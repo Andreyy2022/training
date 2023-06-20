@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 function findUniq(arr) {
   // do magic
   for (let i = 0; i < arr.length; i++) {
@@ -9,7 +9,7 @@ function findUniq(arr) {
       if (!isNaN(arr[i + 1])) {
         return arr[i + 1];
       }
-      
+
     } else {
 
     if (arr[i] === '' && arr[i + 1] !== '') {
@@ -24,6 +24,25 @@ function findUniq(arr) {
       return arr[arr.length - 1];
     }
     }
+  }
+}
+*/
+
+function findUniq(arr) {
+  // do magic
+  for (let i = 0; i < arr.length; i++) {
+
+    if (arr[i] === '' && arr[i + 1] !== '') {
+      return arr[i + 1];
+    }
+  
+    if (arr[i] !== arr[i + 1]) {
+      return arr[i + 1];
+    }
+
+    if (arr[i + 2] > arr.length) {
+      return arr[arr.length - 1];
+      }
   }
 }
 
