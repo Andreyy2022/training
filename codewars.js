@@ -1,51 +1,33 @@
 'use strict';
-/*
-function findUniq(arr) {
-  // do magic
-  for (let i = 0; i < arr.length; i++) {
 
-    if (isNaN(arr[i])) {
+let a;
 
-      if (!isNaN(arr[i + 1])) {
-        return arr[i + 1];
-      }
-
-    } else {
-
-    if (arr[i] === '' && arr[i + 1] !== '') {
-      return arr[i + 1];
-    }
-  
-    if (arr[i] !== arr[i + 1]) {
-      return arr[i + 1];
-    }
-
-    if (arr[i + 2] > arr.length) {
-      return arr[arr.length - 1];
-    }
-    }
-  }
+function zero() {}
+function one() {}
+function two() {}
+function three() {}
+function four() {}
+function five() {
+  a = 5;
+  console.log();
+  return a;
 }
-*/
-
-function findUniq(arr) {
-  // do magic
-  for (let i = 0; i < arr.length; i++) {
-
-    if (arr[i] === '' && arr[i + 1] !== '') {
-      return arr[i + 1];
-    }
-  
-    if (arr[i] !== arr[i + 1]) {
-      return arr[i + 1];
-    }
-
-    if (arr[i + 2] > arr.length) {
-      return arr[arr.length - 1];
-      }
-  }
+function six() {}
+function seven() {
+  a = 7;
+  console.log();
+  return a;
 }
+function eight() {}
+function nine() {}
 
-console.log(findUniq([ NaN, NaN, NaN, 0.7996041476602642, NaN ]));
+function plus() {}
+function minus() {}
+function times() {
+  console.log(a);
 
-console.log( typeof(findUniq([ NaN, NaN, NaN, 0.7996041476602642, NaN ])) );
+  return a * a;
+}
+function dividedBy() {}
+
+console.log( seven(times(five())) ) ;
