@@ -1,51 +1,34 @@
 'use strict';
 
-function zero(func) {
-  return func ? func(0) : 0;
-}
-function one(func) {
-  return func ? func(1) : 1;
-}
-function two(func) {
-  return func ? func(2) : 2;
-}
-function three(func) {
-  return func ? func(3) : 3;
-}
-function four(func) {
-  return func ? func(4) : 4;
-}
-function five(func) {
-  return func ? func(5) : 5;
-}
-function six(func) {
-  return func ? func(6) : 6;
-}
-function seven(func) {
-  return func ? func(7) : 7;
-}
-function eight(func) {
-  return func ? func(8) : 8;
-}
-function nine(func) {
-  return func ? func(9) : 9;
+function rgb(r, g, b){
+  // complete this function
+//  except(r);
+//  except(g);
+//  except(b);
+  return toHEX(r) + toHEX(g) + toHEX(b);
 }
 
-function plus(y) {
-  return x => x + y;
-}
-function minus(y) {
-  return x => x - y;
-}
-function times(y) {
-  return x => x * y;
-}
-function dividedBy(y) {
-  return x => Math.trunc(x / y);
+function toHEX(num) {
+  if (except(num)) {
+    return except(num);
+  } else {
+  console.log(num.toString(16));
+  console.log(num.toString(16).toUpperCase());
+  return num.toString(16).toUpperCase();
+  }
 }
 
-console.log( seven(times(five())) ) ; //must return 35
-console.log( four(plus(nine())) ); // must return 13
-console.log( eight(minus(three())) ); // must return 5
-console.log( six(dividedBy(two())) ); // must return 3
-console.log( eight(dividedBy(three())) );
+function except(num) {
+  if (num <= 0) {
+    return '00';
+  }
+  if (num >= 255) {
+    return 'FF';
+  }
+}
+
+console.log( rgb(255, 255, 255) );
+console.log( rgb(255, 255, 300) );
+console.log( rgb(0,0,0) );
+console.log( rgb(148, 0, 211) ); // returns 9400D3
+console.log( rgb(12, 42, 3) );
