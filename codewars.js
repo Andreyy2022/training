@@ -1,34 +1,39 @@
 'use strict';
 
-function rgb(r, g, b){
-  // complete this function
-//  except(r);
-//  except(g);
-//  except(b);
-  return toHEX(r) + toHEX(g) + toHEX(b);
+function rot13(str) {
+  let result = [];
+  let input  = 'ABCDEFGHIJKLMabcdefghijklm';
+  let output = 'NOPQRSTUVWXYZnopqrstuvwxyz';
+
+  let arrStr = str.split('');
+  arrStr.map(function(elems) {
+    let arrElems = elems.split('');
+    arrElems.map(function(elem) {
+      
+      if (/[A-Za-z]/.test(elem)) {      
+
+        if (input.includes(elem)) {
+          let index = input.indexOf(elem);
+          result.push(output[index]);
+        } else {
+          let index = output.indexOf(elem);
+          result.push(input[index]);
+        }
+      
+      } else {
+        result.push(elem);
+      }
+
+      return result;
+    });
+
+    return result;
+  });
+
+  return result.join('');
 }
 
-function toHEX(num) {
-  if (except(num)) {
-    return except(num);
-  } else {
-  console.log(num.toString(16));
-  console.log(num.toString(16).toUpperCase());
-  return num.toString(16).toUpperCase();
-  }
-}
 
-function except(num) {
-  if (num <= 0) {
-    return '00';
-  }
-  if (num >= 255) {
-    return 'FF';
-  }
-}
 
-console.log( rgb(255, 255, 255) );
-console.log( rgb(255, 255, 300) );
-console.log( rgb(0,0,0) );
-console.log( rgb(148, 0, 211) ); // returns 9400D3
-console.log( rgb(12, 42, 3) );
+console.log( rot13('EBG13 rknzcyr.') );   // ROT13 example.
+console.log( rot13('This is my first ROT13 excercise!') );   // Guvf vf zl svefg EBG13 rkprepvfr!
