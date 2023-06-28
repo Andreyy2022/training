@@ -1,39 +1,51 @@
 'use strict';
-
-function rot13(str) {
-  let result = [];
-  let input  = 'ABCDEFGHIJKLMabcdefghijklm';
-  let output = 'NOPQRSTUVWXYZnopqrstuvwxyz';
-
-  let arrStr = str.split('');
+function parseInt(string) {
+  // TODO: it's your task now
   arrStr.map(function(elems) {
-    let arrElems = elems.split('');
-    arrElems.map(function(elem) {
+    if (numbersMap[elems]) {
       
-      if (/[A-Za-z]/.test(elem)) {      
-
-        if (input.includes(elem)) {
-          let index = input.indexOf(elem);
-          result.push(output[index]);
-        } else {
-          let index = output.indexOf(elem);
-          result.push(input[index]);
-        }
-      
-      } else {
-        result.push(elem);
-      }
-
-      return result;
-    });
-
-    return result;
-  });
-
-  return result.join('');
+    }
+  })
+  
 }
 
+function simpleNum() {
+  
+}
 
+let result = [];
+let arrStr = string.split(' ');
 
-console.log( rot13('EBG13 rknzcyr.') );   // ROT13 example.
-console.log( rot13('This is my first ROT13 excercise!') );   // Guvf vf zl svefg EBG13 rkprepvfr!
+const numbersMap = {
+    'zero': 0,
+    'one': 1,
+    'two': 2,
+    'three': 3,
+    'four': 4,
+    'five': 5,
+    'six': 6,
+    'seven': 7,
+    'eight': 8,
+    'nine': 9,
+    'ten': 10,
+    'eleven': 11,
+    'twelve': 12,
+    'thirteen': 13,
+    'fourteen': 14,
+    'fifteen': 15,
+    'sixteen': 16,
+    'seventeen': 17,
+    'eighteen': 18,
+    'nineteen': 19,
+    'twenty': 20,
+    'thirty': 30,
+    'forty': 40,
+    'fifty': 50,
+    'sixty': 60,
+    'seventy': 70,
+    'eighty': 80,
+    'ninety': 90,
+    'hundred': 100,
+    'thousand': 1000,
+    'million': 1000000
+}
