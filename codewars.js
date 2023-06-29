@@ -1,22 +1,32 @@
 'use strict';
+
 function parseInt(string) {
   // TODO: it's your task now
-  arrStr.map(function(elems) {
-    if (numbersMap[elems]) {
-      
+  let arrStr = string.split(' ').filter(elem => elem !== 'and');
+  return arrStr.length === 1 ? simpleNum(arrStr) : complexNum(arrStr);
+}
+
+function simpleNum(numStr) {
+  return numbersObj[numStr] ? numbersObj[numStr] : numStr.split('-').map(elem => numbersObj[numStr]).reduce((sum, elem) => sum + elem, 0);
+}
+
+function complexNum(numStr) {
+  let result = [];
+  
+  for (let i = 0; i < numStr.length;) {
+    if ( numbersObj[numStr[i + 1]] & ['hundred', 'thousand', 'million'].includes(numbersObj[numStr[i + 1]]) ) {
+      result += numbersObj[numStr[i]] * numbersObj[numStr[i + 1]];
+      i += 2;
+    } else {
+      result += simpleNum( numbersObj[numStr[i]] );
+      i += 1;
     }
-  })
+  }
   
+  return result;
 }
 
-function simpleNum() {
-  
-}
-
-let result = [];
-let arrStr = string.split(' ');
-
-const numbersMap = {
+const numbersObj = {
     'zero': 0,
     'one': 1,
     'two': 2,
@@ -49,3 +59,5 @@ const numbersMap = {
     'thousand': 1000,
     'million': 1000000
 }
+
+console.log(parseInt('two hundred forty-six'));
