@@ -14,25 +14,21 @@ function complexNum(numStr) {
   let result = 0;
   
   for (let i = 0; i < numStr.length;) {
+    if ( numStr[i + 1] && ['hundred', 'thousand', 'million'].includes(numStr[i + 1]) ) {
 
-    if ( numbersObj[numStr[i + 1]] && ['hundred', 'thousand', 'million'].includes(numStr[i + 1]) ) {
-
-/*      if (i < 5) {
-      result += numbersObj[numStr[i]] * numbersObj[numStr[i + 1]];
       console.log(result);
-      } else {
-*/        console.log(result);
-        result *= numbersObj[numStr[i + 1]];
-        console.log(result);
-//      }
+      result += simpleNum(numStr[i])
+      result *= numbersObj[numStr[i + 1]];
+      console.log(result);
+
       i += 2;
-      
+      continue;
     } else {
       result += simpleNum( numStr[i] );
-      i += 1;
+      
     }
+    i += 1;
   }
-  
   return result;
 }
 
@@ -70,6 +66,6 @@ const numbersObj = {
     'million': 1000000
 }
 
-console.log( parseInt('two hundred forty-six') );
+console.log( parseInt('two hundred forty-six') ); //246
 console.log( parseInt('one') );
 console.log( parseInt("seven hundred eighty-three thousand nine hundred and nineteen") ); //  783919
