@@ -7,18 +7,28 @@ function parseInt(string) {
 }
 
 function simpleNum(numStr) {
-  return numbersObj[numStr] ? numbersObj[numStr] : numStr.split('-').map(elem => numbersObj[numStr]).reduce((sum, elem) => sum + elem, 0);
+  return numbersObj[numStr] ? numbersObj[numStr] : numStr.split('-').map(elem => numbersObj[elem]).reduce((sum, elem) => sum + elem, 0);
 }
 
 function complexNum(numStr) {
-  let result = [];
+  let result = 0;
   
   for (let i = 0; i < numStr.length;) {
-    if ( numbersObj[numStr[i + 1]] & ['hundred', 'thousand', 'million'].includes(numbersObj[numStr[i + 1]]) ) {
+
+    if ( numbersObj[numStr[i + 1]] && ['hundred', 'thousand', 'million'].includes(numStr[i + 1]) ) {
+
+/*      if (i < 5) {
       result += numbersObj[numStr[i]] * numbersObj[numStr[i + 1]];
+      console.log(result);
+      } else {
+*/        console.log(result);
+        result *= numbersObj[numStr[i + 1]];
+        console.log(result);
+//      }
       i += 2;
+      
     } else {
-      result += simpleNum( numbersObj[numStr[i]] );
+      result += simpleNum( numStr[i] );
       i += 1;
     }
   }
@@ -60,4 +70,6 @@ const numbersObj = {
     'million': 1000000
 }
 
-console.log(parseInt('two hundred forty-six'));
+console.log( parseInt('two hundred forty-six') );
+console.log( parseInt('one') );
+console.log( parseInt("seven hundred eighty-three thousand nine hundred and nineteen") ); //  783919
