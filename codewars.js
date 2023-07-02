@@ -16,16 +16,19 @@ function complexNum(numStr) {
   for (let i = 0; i < numStr.length;) {
     if ( numStr[i + 1] && ['hundred', 'thousand', 'million'].includes(numStr[i + 1]) ) {
 
-      console.log(result);
-      result += simpleNum(numStr[i])
-      result *= numbersObj[numStr[i + 1]];
-      console.log(result);
-
+      if (numStr[i + 1] === 'hundred') {
+        result += numbersObj[numStr[i]] * numbersObj[numStr[i + 1]];
+      } else {
+        result += simpleNum(numStr[i]);
+        result *= numbersObj[numStr[i + 1]];
+      }
       i += 2;
       continue;
+
+    } else  if (numStr[i] === 'thousand') {
+      result += result * numbersObj['thousand'];
     } else {
-      result += simpleNum( numStr[i] );
-      
+      result += simpleNum(numStr[i]);
     }
     i += 1;
   }
