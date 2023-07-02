@@ -7,7 +7,7 @@ function parseInt(string) {
 }
 
 function simpleNum(numStr) {
-  return numbersObj[numStr] ? numbersObj[numStr] : numStr.split('-').map(elem => numbersObj[elem]).reduce((sum, elem) => sum + elem, 0);
+  return numbersObj[numStr] ? numbersObj[numStr] : numStr.toString().split('-').map(elem => numbersObj[elem]).reduce((sum, elem) => sum + elem, 0);
 }
 
 function complexNum(numStr) {
@@ -72,3 +72,5 @@ const numbersObj = {
 console.log( parseInt('two hundred forty-six') ); //246
 console.log( parseInt('one') );
 console.log( parseInt("seven hundred eighty-three thousand nine hundred and nineteen") ); //  783919
+console.log( parseInt("seven hundred thousand seven handred") ); //  700700
+console.log( parseInt("seven hundred thousand") ); //  700000
