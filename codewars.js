@@ -26,7 +26,7 @@ function complexNum(numStr) {
       continue;
 
     } else  if (numStr[i] === 'thousand') {
-      result += result * numbersObj['thousand'];
+      result *= numbersObj['thousand'];
     } else {
       result += simpleNum(numStr[i]);
     }
@@ -72,5 +72,4 @@ const numbersObj = {
 console.log( parseInt('two hundred forty-six') ); //246
 console.log( parseInt('one') );
 console.log( parseInt("seven hundred eighty-three thousand nine hundred and nineteen") ); //  783919
-console.log( parseInt("seven hundred thousand seven handred") ); //  700700
 console.log( parseInt("seven hundred thousand") ); //  700000
