@@ -1,75 +1,29 @@
 'use strict';
 
-function parseInt(string) {
-  // TODO: it's your task now
-  let arrStr = string.split(' ').filter(elem => elem !== 'and');
-  return arrStr.length === 1 ? simpleNum(arrStr) : complexNum(arrStr);
-}
+Array.prototype.sameStructureAs = function (other) {
+  // Return 'true' if and only if 'other' has the same
+  // nesting structure as 'this'.
 
-function simpleNum(numStr) {
-  return numbersObj[numStr] ? numbersObj[numStr] : numStr.toString().split('-').map(elem => numbersObj[elem]).reduce((sum, elem) => sum + elem, 0);
-}
-
-function complexNum(numStr) {
-  let result = 0;
-  
-  for (let i = 0; i < numStr.length;) {
-    if ( numStr[i + 1] && ['hundred', 'thousand', 'million'].includes(numStr[i + 1]) ) {
-
-      if (numStr[i + 1] === 'hundred') {
-        result += numbersObj[numStr[i]] * numbersObj[numStr[i + 1]];
-      } else {
-        result += simpleNum(numStr[i]);
-        result *= numbersObj[numStr[i + 1]];
-      }
-      i += 2;
-      continue;
-
-    } else  if (numStr[i] === 'thousand') {
-      result *= numbersObj['thousand'];
-    } else {
-      result += simpleNum(numStr[i]);
-    }
-    i += 1;
+  // Note: You are given a function isArray(o) that returns
+  // whether its argument is an array.
+  if (this.length !== other.length) {
+    return false;
   }
-  return result;
-}
 
-const numbersObj = {
-    'zero': 0,
-    'one': 1,
-    'two': 2,
-    'three': 3,
-    'four': 4,
-    'five': 5,
-    'six': 6,
-    'seven': 7,
-    'eight': 8,
-    'nine': 9,
-    'ten': 10,
-    'eleven': 11,
-    'twelve': 12,
-    'thirteen': 13,
-    'fourteen': 14,
-    'fifteen': 15,
-    'sixteen': 16,
-    'seventeen': 17,
-    'eighteen': 18,
-    'nineteen': 19,
-    'twenty': 20,
-    'thirty': 30,
-    'forty': 40,
-    'fifty': 50,
-    'sixty': 60,
-    'seventy': 70,
-    'eighty': 80,
-    'ninety': 90,
-    'hundred': 100,
-    'thousand': 1000,
-    'million': 1000000
-}
+  for (let i = 0; i < this.length; i++) {
+    if ( Array.isArray(this[i]) && !this[i].sameStructureAs(other[i]) ) {
+      return false;
+    }
+    if ( !Array.isArray(this[i]) && Array.isArray(other[i]) ) {
+      return false;
+    }
+  }
+  
+  return true;
+};
 
-console.log( parseInt('two hundred forty-six') ); //246
-console.log( parseInt('one') );
-console.log( parseInt("seven hundred eighty-three thousand nine hundred and nineteen") ); //  783919
-console.log( parseInt("seven hundred thousand") ); //  700000
+console.log( [ 1, 1, 1 ].sameStructureAs( [ 2, 2, 2 ] ) );
+console.log( [ 1, [ 1, 1 ] ].sameStructureAs( [ 2, [ 2, 2 ] ] ) );
+console.log( [ 1, [ 1, 1 ] ].sameStructureAs( [ [ 2, 2 ], 2 ] ) );
+console.log( [ [ [ ], [ ] ] ].sameStructureAs( [ [ 1, 1 ] ] ) );
+console.log( [1,[1,1]].sameStructureAs( [2,[2]] ) );
