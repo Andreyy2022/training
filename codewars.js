@@ -1,29 +1,22 @@
 'use strict';
 
-Array.prototype.sameStructureAs = function (other) {
-  // Return 'true' if and only if 'other' has the same
-  // nesting structure as 'this'.
+  let result = [];
 
-  // Note: You are given a function isArray(o) that returns
-  // whether its argument is an array.
-  if (this.length !== other.length) {
-    return false;
-  }
+let snail = function(array) {
+  // enjoy
 
-  for (let i = 0; i < this.length; i++) {
-    if ( Array.isArray(this[i]) && !this[i].sameStructureAs(other[i]) ) {
-      return false;
-    }
-    if ( !Array.isArray(this[i]) && Array.isArray(other[i]) ) {
-      return false;
-    }
-  }
   
-  return true;
-};
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array[i]; i++) {
+      result.push(array[i][j]);
+      console.log(result);
+    }
+  }
+}
 
-console.log( [ 1, 1, 1 ].sameStructureAs( [ 2, 2, 2 ] ) );
-console.log( [ 1, [ 1, 1 ] ].sameStructureAs( [ 2, [ 2, 2 ] ] ) );
-console.log( [ 1, [ 1, 1 ] ].sameStructureAs( [ [ 2, 2 ], 2 ] ) );
-console.log( [ [ [ ], [ ] ] ].sameStructureAs( [ [ 1, 1 ] ] ) );
-console.log( [1,[1,1]].sameStructureAs( [2,[2]] ) );
+
+let array = [[1,2,3], [4,5,6], [7,8,9]];
+
+console.log(snail([[1,2,3], [4,5,6], [7,8,9]]));
+console.log(array[2][0]);
+console.log(result.push('3'));
