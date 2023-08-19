@@ -1,24 +1,19 @@
 class Employee {
-    constructor (name, salary) {
-        this.name = name;
-        this.salary = salary;
-    }
-
-    show() {
-        return `${this.name} - ${this.salary}$`;
-    }
-
-    showName() {
-        return this.name;
-    }
-
-    riseManey() {
-        return this.salary + this.salary * 0.1;
-    }
+	constructor(name, salary) {
+		this.name = name;
+		this.salary = salary;
+	}
+	
+	getSalary() {
+		return this._addSign(this.salary);
+	}
+	
+	_addSign(num) {
+		return num + '$';
+	}
 }
 
-let eml = new Employee('John', 3000);
+let emp = new Employee('Nick', 6000);
 
-console.log(eml.show());
-console.log(eml.showName());
-console.log(eml.riseManey());
+console.log(emp.getSalary());
+
