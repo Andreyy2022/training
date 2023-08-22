@@ -1,19 +1,24 @@
 class Employee {
-	constructor(name, salary) {
-		this.name = name;
-		this.salary = salary;
+	#name;
+	#salary;
+	#age;
+
+	constructor(name, salary, age) {
+		this.#name = name;
+		this.#salary = salary;
+		this.#age = age;
 	}
-	
+
 	getSalary() {
-		return this._addSign(this.salary);
+		return this.#salary + '$';
 	}
-	
-	_addSign(num) {
-		return num + '$';
+
+	getEmpl() {
+		return this.#name + ' ' + this.#age + 'years old';
 	}
 }
 
-let emp = new Employee('Nick', 6000);
+let emp = new Employee('Jhon', '5000', '30');
 
+console.log(emp.getEmpl());
 console.log(emp.getSalary());
-
