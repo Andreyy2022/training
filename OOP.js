@@ -1,23 +1,29 @@
 class Employee {
 	#name;
 	#salary;
-	#age;
 
-	setAge(age) {
-		if (age >= 0 && age <= 120) {
-			this.#age = age;
-		} else {
-			throw new Error(' ().() ');
-		}
+	setName(name) {
+		this.#name = name;
+		return this;
 	}
 
-	getAge() {
-		return this.#age + ' years old bro';
+	setSalary(salary) {
+		this.#salary = salary;
+		return this;
+	}
+
+	getName() {
+		return this.#name;
+	}
+
+	getSalary() {
+		return this.#salary;
 	}
 }
 
 let empl = new Employee;
 
-empl.setAge(130);
+empl.setName('Michael').setSalary(4500);
 
-console.log(empl.getAge());
+console.log(empl.getName());
+console.log(empl.getSalary());
