@@ -3,22 +3,21 @@ class Employee {
 	#salary;
 	#age;
 
-	constructor(name, salary, age) {
-		this.#name = name;
-		this.#salary = salary;
-		this.#age = age;
+	setAge(age) {
+		if (age >= 0 && age <= 120) {
+			this.#age = age;
+		} else {
+			throw new Error(' ().() ');
+		}
 	}
 
-	getSalary() {
-		return this.#salary + '$';
-	}
-
-	getEmpl() {
-		return this.#name + ' ' + this.#age + 'years old';
+	getAge() {
+		return this.#age + ' years old bro';
 	}
 }
 
-let emp = new Employee('Jhon', '5000', '30');
+let empl = new Employee;
 
-console.log(emp.getEmpl());
-console.log(emp.getSalary());
+empl.setAge(130);
+
+console.log(empl.getAge());
