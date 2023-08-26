@@ -1,29 +1,10 @@
 class Employee {
-	#name;
-	#salary;
-
-	setName(name) {
-		this.#name = name;
-		return this;
-	}
-
-	setSalary(salary) {
-		this.#salary = salary;
-		return this;
-	}
-
-	getName() {
-		return this.#name;
-	}
-
-	getSalary() {
-		return this.#salary;
+	constructor(name) {
+		this.name = name;
 	}
 }
 
-let empl = new Employee;
+let emp1 = new Employee('john');
+let emp2 = new Employee('eric');
 
-empl.setName('Michael').setSalary(4500);
-
-console.log(empl.getName());
-console.log(empl.getSalary());
+console.log(emp1 === emp2);
