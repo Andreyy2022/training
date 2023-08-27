@@ -1,32 +1,64 @@
+class EmployeesCollection {
+	#employees;
+
+	constructor() {
+		this.#employees = [];
+	}
+
+	addEmpl(employee) {
+		return this.#employees.push(employee);
+	}
+
+	showEmpl() {
+		for (let employee of this.#employees) {
+			console.log(employee.getShowName());
+		}
+	}
+
+	showAllSalary() {
+		let sum = 0;
+		for (let employee of this.#employees) {
+			sum += employee.getShowSalary();
+		}
+		return sum;
+	}
+
+	showAvrSalary() {
+		let sum = 0;
+		for (let employee of this.#employees) {
+			sum += employee.getShowSalary();
+		}
+		return sum/this.#employees.length;
+	}
+}
+
 class Employee {
-	constructor(name, position, department) {
-		this.name = name;
-		this.position = position;
-		this.department = department;
+	#name;
+	#salary;
+
+	constructor(name, salary) {
+		this.#name = name;
+		this.#salary = salary;
+	}
+
+	getShowName() {
+		return this.#name;
+	}
+
+	getShowSalary() {
+		return this.#salary;
 	}
 }
 
-class Position {
-	constructor(name) {
-		this.name = name;
-	}
-}
+let employees = new EmployeesCollection;
 
-class Department {
-	constructor(name) {
-		this.name = name;
-	}
-}
+employees.addEmpl(new Employee('Jhon', 2000));
+employees.addEmpl(new Employee('Michael', 3000));
+employees.addEmpl(new Employee('Bob', 4000));
+employees.addEmpl(new Employee('Jesica', 5000));
 
-let posit = new Position('developer');
-let depar = new Department('development');
+//console.log(employees);
 
-let empl = new Employee('Jhon', posit, depar);
-
-console.log(posit.name);
-
-console.log(empl.name);
-console.log(empl);
-console.log(empl.position);
-console.log(empl.position.name);
-console.log(empl.department.name);
+employees.showEmpl();
+console.log(employees.showAllSalary());
+console.log(employees.showAvrSalary());
