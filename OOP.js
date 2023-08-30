@@ -1,18 +1,24 @@
 class User {
-    constructor(name) {
-        this.name = name;
+    setAge(age) {
+        this.age = age;
     }
 
-    show() {
-        return this.name;
+    getAge() {
+        return this.age;
     }
 }
 
 class Employee extends User {
-
+    setAge(age) {
+        if (age > 18 & age < 65) {
+            this.age = age;
+        } else {
+            throw new Error('age does not suit');
+        }
+    }    
 }
 
-let empl = new Employee('Jhon');
+let empl = new Employee;
+empl.setAge(100);
 
-console.log(empl.show());
-console.dir(empl.show());
+console.log(empl.getAge());
