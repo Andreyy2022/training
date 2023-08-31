@@ -1,24 +1,33 @@
 class User {
-    setAge(age) {
-        this.age = age;
-    }
-
-    getAge() {
-        return this.age;
-    }
+	constructor(name, surn) {
+		this.name = name;
+		this.surn = surn;
+	}
+	
+	getName() {
+		return this.name;
+	}
+	getSurn() {
+		return this.surn;
+	}
 }
 
 class Employee extends User {
-    setAge(age) {
-        if (age > 18 & age < 65) {
-            this.age = age;
-        } else {
-            throw new Error('age does not suit');
-        }
-    }    
+	constructor(name, surn, age, salary) {
+		super(name, surn);
+		this.age = age;
+		this.salary = salary;
+	}
+
+	getAge() {
+		return this.age;
+	}
+
+	getSalary() {
+		return this.salary;
+	}
 }
 
-let empl = new Employee;
-empl.setAge(100);
+let empl = new Employee('Michael', 'Smith', 35, 4000);
 
-console.log(empl.getAge());
+console.log(empl.name + ' ' + empl.surn + ', ' + empl.age + ' years old' + ', ' + empl.salary + ' $');
