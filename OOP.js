@@ -1,33 +1,31 @@
 class User {
-	constructor(name, surn) {
+	setName(name) {
 		this.name = name;
-		this.surn = surn;
 	}
-	
-	getName() {
-		return this.name;
+
+	#firstLetter(str) {
+		return str[0].toUpperCase() + str.slice(1);
 	}
-	getSurn() {
-		return this.surn;
+
+	getShowFirstL(str) {
+		return this.#firstLetter(str);
 	}
 }
 
 class Employee extends User {
-	constructor(name, surn, age, salary) {
-		super(name, surn);
-		this.age = age;
-		this.salary = salary;
+	setSurn(surn) {
+		this.surn = surn;
 	}
-
-	getAge() {
-		return this.age;
+/*
+	getShow() {
+		return this.#firstLette(this.surn);
 	}
-
-	getSalary() {
-		return this.salary;
-	}
+*/
 }
 
-let empl = new Employee('Michael', 'Smith', 35, 4000);
+let empl = new Employee;
 
-console.log(empl.name + ' ' + empl.surn + ', ' + empl.age + ' years old' + ', ' + empl.salary + ' $');
+empl.setSurn('smith');
+
+console.log(empl.getShowFirstL(empl.surn));
+//console.log(empl.getShow());
