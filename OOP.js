@@ -1,6 +1,5 @@
 class User {
 	#name;
-	#surn;
 	
 	setName(name) {
 		this.#name = name;
@@ -8,22 +7,17 @@ class User {
 	getName() {
 		return this.#name;
 	}
-	
-	setSurn(surn) {
-		this.#surn = surn;
-	}
-	getSurn() {
-		return this.#surn;
-	}
 }
 
 class Employee extends User {
-	
+	setName2(name) {
+		if (name.length > 0) {
+			this.setName(name);
+		}
+	}
 }
 
 let empl = new Employee;
 
-empl.setName('Jhon');
-empl.setSurn('Smith');
-
-console.log(empl.getName() + ' ' + empl.getSurn());
+empl.setName2('Michael');
+console.log(empl.getName());
