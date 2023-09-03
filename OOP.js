@@ -1,31 +1,29 @@
 class User {
+	#name;
+	#surn;
+	
 	setName(name) {
-		this.name = name;
+		this.#name = name;
 	}
-
-	#firstLetter(str) {
-		return str[0].toUpperCase() + str.slice(1);
+	getName() {
+		return this.#name;
 	}
-
-	getShowFirstL(str) {
-		return this.#firstLetter(str);
+	
+	setSurn(surn) {
+		this.#surn = surn;
+	}
+	getSurn() {
+		return this.#surn;
 	}
 }
 
 class Employee extends User {
-	setSurn(surn) {
-		this.surn = surn;
-	}
-/*
-	getShow() {
-		return this.#firstLette(this.surn);
-	}
-*/
+	
 }
 
 let empl = new Employee;
 
-empl.setSurn('smith');
+empl.setName('Jhon');
+empl.setSurn('Smith');
 
-console.log(empl.getShowFirstL(empl.surn));
-//console.log(empl.getShow());
+console.log(empl.getName() + ' ' + empl.getSurn());
