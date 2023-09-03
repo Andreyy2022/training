@@ -1,23 +1,31 @@
 class User {
-	#name;
-	
 	setName(name) {
-		this.#name = name;
+		if (this._notEmpty(name)) {
+			this.name = name;
+		}
 	}
 	getName() {
-		return this.#name;
+		return this.name;
+	}
+	
+	_notEmpty(str) {
+		return str.length > 0;
 	}
 }
-
 class Employee extends User {
-	setName2(name) {
-		if (name.length > 0) {
-			this.setName(name);
+	setSurn(surn) {
+		if (this._notEmpty(surn)) {
+			this.surn = surn;
 		}
+	}
+	getSurn() {
+		return this.surn;
 	}
 }
 
 let empl = new Employee;
 
-empl.setName2('Michael');
-console.log(empl.getName());
+empl.setName('Jhon');
+empl.setSurn('Smith');
+
+alert(empl.getName() + ' ' + empl.getSurn());
