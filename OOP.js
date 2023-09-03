@@ -1,21 +1,20 @@
 class User {
-	setName(name) {
-		this._name = name;
+	constructor(name, cities) {
+		this.name = name;
+		this.cities = cities;
 	}
-	getName() {
-		return this._name;
+	
+	showCities() {
+		this.cities.forEach(city => {
+			console.log(this.#cape(city));
+		});
+	}
+	
+	#cape(str) {
+		return str[0].toUpperCase() + str.slice(1);
 	}
 }
 
-class Employee extends User {
-	setName(name) {
-		if (name.length > 0) {
-			this._name = name;
-		}
-	}
-}
+let user = new User('Nick', ['york', 'chebocsary', 'milan']);
 
-let empl = new Employee;
-
-empl.setName('Jhon');
-console.log(empl.getName());
+console.log(user.showCities());
