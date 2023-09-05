@@ -1,20 +1,20 @@
-class User {
-	constructor(name, cities) {
-		this.name = name;
-		this.cities = cities;
+class Employee {
+	#name;
+
+	constructor(name) {
+		this.#name = name;
 	}
-	
-	showCities() {
-		this.cities.forEach(city => {
-			console.log(this.#cape(city));
-		});
+
+	getShow() {
+		return this.#name;
 	}
-	
-	#cape(str) {
-		return str[0].toUpperCase() + str.slice(1);
-	}
+
 }
 
-let user = new User('Nick', ['york', 'chebocsary', 'milan']);
+let empl = new Employee('Jhon');
 
-console.log(user.showCities());
+let show = empl.getShow;
+
+show = show.bind(empl);
+
+console.log(show());
