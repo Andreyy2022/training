@@ -1,20 +1,13 @@
-class Employee {
-	#name;
+/*import Employee from './Employee.js';
 
-	constructor(name) {
-		this.#name = name;
-	}
+let empl = new Employee('Jhon', 3000);
 
-	getShow() {
-		return this.#name;
-	}
+console.log(empl.getName() + ' ' + empl.getSalary() + '$');
+*/
 
-}
+import User from './User.js';
 
-let empl = new Employee('Jhon');
 
-let show = empl.getShow;
+let user = new User('john');
 
-show = show.bind(empl);
-
-console.log(show());
+console.log(user);
