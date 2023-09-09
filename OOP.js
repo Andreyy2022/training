@@ -1,15 +1,27 @@
-class Employee {
-    name;
+class User {
+	#name;
+	
+	constructor(name) {
+		this.#name = name;
+	}
+	
 	get name() {
-		return this.name;
+		return this.#name;
 	}
-	set name(value) {
-		this.name = value;
-	}
+
+    set name(value) {
+        this.#name = value;
+    }
 }
+//Проверим работу. Создадим объект нашего класса, передав ему параметром значение имени:
 
-let empl = new Employee;
+let user = new User('john');
+//А теперь прочитаем имя через публичное свойство:
 
-empl.name = 'John';
 
-console.log(empl.name);
+console.log(user.name);
+//А вот попытка записать имя приведет к ошибке, как мы и добивались:
+
+user.name = 'eric';
+
+console.log(user.name);
