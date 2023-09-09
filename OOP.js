@@ -10,7 +10,11 @@ class User {
 	}
 
     set name(value) {
-        this.#name = value;
+        if (value.length >= 4) {
+            this.#name = value;
+        } else {
+            throw new Error('the word is too short');
+        }
     }
 }
 //Проверим работу. Создадим объект нашего класса, передав ему параметром значение имени:
@@ -23,5 +27,7 @@ console.log(user.name);
 //А вот попытка записать имя приведет к ошибке, как мы и добивались:
 
 user.name = 'eric';
+console.log(user.name);
 
+user.name = 'h';
 console.log(user.name);
