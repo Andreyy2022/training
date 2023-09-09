@@ -1,33 +1,16 @@
 class User {
-	#name;
-	
-	constructor(name) {
-		this.#name = name;
-	}
-	
-	get name() {
-		return this.#name;
-	}
+    constructor(name, surn) {
+        this.name = name;
+        this.surn = surn;
+    }
 
-    set name(value) {
-        if (value.length >= 4) {
-            this.#name = value;
-        } else {
-            throw new Error('the word is too short');
-        }
+    get fullName() {
+        return `${this.name} ${this.surn}`;
     }
 }
-//Проверим работу. Создадим объект нашего класса, передав ему параметром значение имени:
 
-let user = new User('john');
-//А теперь прочитаем имя через публичное свойство:
-
+let user = new User('John', 'Smith');
 
 console.log(user.name);
-//А вот попытка записать имя приведет к ошибке, как мы и добивались:
-
-user.name = 'eric';
-console.log(user.name);
-
-user.name = 'h';
-console.log(user.name);
+console.log(user.surn);
+console.log(user.fullName);
