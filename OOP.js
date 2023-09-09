@@ -1,13 +1,15 @@
-/*import Employee from './Employee.js';
+class Employee {
+    name;
+	get name() {
+		return this.name;
+	}
+	set name(value) {
+		this.name = value;
+	}
+}
 
-let empl = new Employee('Jhon', 3000);
+let empl = new Employee;
 
-console.log(empl.getName() + ' ' + empl.getSalary() + '$');
-*/
+empl.name = 'John';
 
-import User from './User.js';
-
-
-let user = new User('john');
-
-console.log(user);
+console.log(empl.name);
