@@ -1,24 +1,59 @@
-class Rectangle {
-    constructor(width, height) {
-        this.width = width;
-        this.height = height;
+class Text {
+    constructor(text) {
+        this.text = text;
     }
 
-    getSquare() {
-        return this.width * this.height;
+    countSimb() {
+        return this.text.length;
     }
 
-    getPerimeter() {
-        return (this.width + this.height) * 2;
+    countLett() {
+        return this.text.match(/[A-Za-z]/g).length;
     }
 
-    getRatio() {
-        return this.getSquare() / this.getPerimeter();
+    countGap() {
+        return this.text.match(/[ ]/g).length;
+    }
+
+    countDiffSimbGap() {
+        return this.countSimb() - this.countGap();
+    }
+
+    arrWord() {
+        let result = [];
+        let words = this.text.split(' ');
+        
+        for (let word of words) {
+            if ( word.match(/[A-Za-z]/g) ) {
+                result.push(word);
+            }
+        }
+
+        return result;
+    }
+
+    arrSentence() {
+        let result;
+
+        if ( this.text.match(/[.]/g) ) {
+            result = this.text.split('.');
+        }
+        
+        for (let res of result) {
+            if (res === '') {
+                result.pop();
+            }
+        }
+
+        return result;
     }
 }
 
-let rectangle = new Rectangle(100, 200);
+let text = new Text('Hello Jaisy . It is me .');
 
-console.log(rectangle.getSquare());
-console.log(rectangle.getPerimeter());
-console.log(rectangle.getRatio());
+console.log(text.countSimb());
+console.log(text.countLett());
+console.log(text.countGap());
+console.log(text.countDiffSimbGap());
+console.log(text.arrWord());
+console.log(text.arrSentence());
