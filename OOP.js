@@ -1,42 +1,24 @@
-class Circle {
-    #radius;
-
-    constructor(x, y, radius, firstRadians, degrees) {
-        this.x = x;
-        this.y = y;
-        this.#radius = radius;
-        this.firstRadians = firstRadians;
-        this.degrees = degrees;
+class Rectangle {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
     }
 
-    canvas() {
-        let canv = document.querySelector('#canvas');
-        let ctx = canv.getContext('2d');
-
-        ctx.arc(this.x, this.y, this.#radius, this.firstRadians, this.radians(this.degrees));
-        ctx.stroke();
+    getSquare() {
+        return this.width * this.height;
     }
 
-    radians(degrees) {
-        return (Math.PI / 180) * degrees;
+    getPerimeter() {
+        return (this.width + this.height) * 2;
     }
 
-    square() {
-        return this.#radius ** 2 * Math.PI;
-    }
-
-    lengthCirc() {
-        return 2 * this.#radius * Math.PI;
+    getRatio() {
+        return this.getSquare() / this.getPerimeter();
     }
 }
 
-let circle1 = new Circle(150, 150, 75, 0, 360);
-circle1.canvas();
+let rectangle = new Rectangle(100, 200);
 
-let circle2 = new Circle(150, 150, 100, 0, 360)
-circle2.canvas();
-console.log(circle2.lengthCirc());
-
-let circle3 = new Circle(150, 150, 150, 0, 360)
-circle3.canvas();
-console.log(circle3.square());
+console.log(rectangle.getSquare());
+console.log(rectangle.getPerimeter());
+console.log(rectangle.getRatio());
