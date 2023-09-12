@@ -1,24 +1,33 @@
-class Period {
-    constructor(time1, time2) {
-        this.time1 = time1;
-        this.time2 = time2;
+class Zate {
+    constructor(yyyy, mm, dd) {
+        this.yyyy = yyyy;
+        this.mm = mm;
+        this.dd = dd;
     }
 
-    showSec() {
-        return (this.time2 - this.time1) / 1000;
+    date() {
+        return new Date(this.yyyy, this.mm, this.dd);
     }
 
-    showMin() {
-        return (this.time2 - this.time1) / 1000 / 60;
+    dateY() {
+        return this.date().getFullYear();
     }
 
-    showDays() {
-        return (this.time2 - this.time1) / 1000 / 60 / 60 / 24;
+    dateMNum() {
+        return this.date().getMonth();
     }
+
+    dateDayName() {
+        let arrMonth = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
+
+        return arrMonth[this.date().getDay()];
+    }
+
 }
 
-let period = new Period(new Date('2023-06-08'), new Date('2023-07-12'));
+let zate = new Zate(2023, 8, 12);
 
-console.log(period.showSec());
-console.log(period.showMin());
-console.log(period.showDays());
+console.log(zate.date());
+console.log(zate.dateY());
+console.log(zate.dateMNum());
+console.log(zate.dateDayName());
