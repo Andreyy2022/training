@@ -1,54 +1,25 @@
-class Zate {
-    constructor(yyyy, mm, dd) {
-        this.yyyy = yyyy;
-        this.mm = mm;
-        this.dd = dd;
+class Month {
+    dateVar;
+    constructor(monthNum) {
+        this.monthNum = monthNum;
+        this.dateVar = this.dateVar;
     }
 
     date() {
-        return new Date(this.yyyy, this.mm, this.dd);
+        return this.dateVar = new Date();
     }
 
-    dateY() {
-        return this.date().getFullYear();
+    showMonthNum() {
+        return this.monthNum;
     }
 
-    dateMNum() {
-        return this.date().getMonth();
-    }
-
-    dateDayName() {
-        let arrMonth = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
-
-        return arrMonth[this.date().getDay()];
-    }
-
-}
-
-let zate = new Zate(2023, 8, 12);
-
-console.log(zate.date());
-console.log(zate.dateY());
-console.log(zate.dateMNum());
-console.log(zate.dateDayName());
-
-class ZateExt extends Zate {
-    
-    addYear(years) {
-        return this.date().setFullYear(years + this.date().getFullYear());
-    }
-
-    date1(newYears) {
-        return new Date(newYears / 1000 / 60 / 60 / 24 / 365 + 1970, this.mm, this.dd);
+    showMonthName() {
+        return this.dateVar.toLocaleString('default', {month: 'long'});
     }
 }
 
-let zateExt = new ZateExt(2023, 5, 20);
-
-console.log(zateExt.date());
-console.log(zateExt);
-console.log(zateExt.date1(zateExt.addYear(2)));
-
-let exmp = new Date();
-exmp.setFullYear(3 + exmp.getFullYear());
-console.log(exmp);
+let month = new Month(5);
+month.date();
+console.log(month.dateVar);
+console.log(month.showMonthNum());
+console.log(month.showMonthName());
