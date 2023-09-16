@@ -1,42 +1,15 @@
-class Month {
-    dateVar;
-    constructor(monthNum) {
-        this.monthNum = monthNum;
-        this.dateVar = this.dateVar;
+class Store {
+    set(key, value) {
+        localStorage.setItem(key, value);
     }
 
-    date() {
-        this.dateVar = new Date();
-        return this.dateVar.setMonth(this.monthNum);
-    }
-
-    showMonthNum() {
-        return this.monthNum;
-    }
-
-    showMonthName() {
-        return this.dateVar.toLocaleString('default', {month: 'long'});
-    }
-
-    showLastDate() {
-        return new Date( this.dateVar.getFullYear(), this.dateVar.getMonth() + 1, 0 ).getDate();
-    }
-
-    showFirstDay() {
-        this.dateVar = new Date( this.dateVar.getFullYear(), this.dateVar.getMonth(), 1 );
-        return this.dateVar.getDay();
-    }
-
-    showLastDay() {
-        return new Date( this.dateVar.getFullYear(), this.dateVar.getMonth() + 1, 0 ).getDay();
+    get(key) {
+        localStorage.getItem(key)
     }
 }
 
-let month = new Month(5);
-month.date();
-console.log(month.dateVar);
-console.log(month.showMonthNum());
-console.log(month.showMonthName());
-console.log(month.showLastDate());
-console.log(month.showFirstDay());
-console.log(month.showLastDay());
+let store = new Store();
+store.set('key', {a: 1, b: 2, c: 3});
+
+let res = store.get('key');
+console.log(res); // {a: 1, b: 2, c: 3}
