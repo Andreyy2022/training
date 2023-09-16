@@ -26,6 +26,10 @@ class Month {
         this.dateVar = new Date( this.dateVar.getFullYear(), this.dateVar.getMonth(), 1 );
         return this.dateVar.getDay();
     }
+
+    showLastDay() {
+        return new Date( this.dateVar.getFullYear(), this.dateVar.getMonth() + 1, 0 ).getDay();
+    }
 }
 
 let month = new Month(5);
@@ -35,3 +39,4 @@ console.log(month.showMonthNum());
 console.log(month.showMonthName());
 console.log(month.showLastDate());
 console.log(month.showFirstDay());
+console.log(month.showLastDay());
