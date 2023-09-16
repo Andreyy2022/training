@@ -48,3 +48,7 @@ let zateExt = new ZateExt(2023, 5, 20);
 console.log(zateExt.date());
 console.log(zateExt);
 console.log(zateExt.date1(zateExt.addYear(2)));
+
+let exmp = new Date();
+exmp.setFullYear(3 + exmp.getFullYear());
+console.log(exmp);
