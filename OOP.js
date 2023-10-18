@@ -1,24 +1,22 @@
-class Store {
+function func() {
+    let num = 10;
 
-    set(key, value) {
-        value = JSON.stringify(value);
-        localStorage.setItem(key, value);
-    }
-
-    get(key) {
-        console.log( JSON.parse(localStorage.getItem(key)) );
-    }
-
-    del(key) {
-        localStorage.removeItem(key);
+    return function() {
+        console.log(num);
+        num--;
     }
 }
 
-let store = new Store;
+func();
+func();
+func();
 
-store.set('key', {a: 1, b: 2, c: 3});
-store.get('key');
-store.set('key', 445);
-store.get('key');
-store.del('key');
-store.get('key');
+func()();
+
+let newFun1 = func();
+let newFun2 = func();
+
+newFun1();
+newFun1();
+
+newFun2();
