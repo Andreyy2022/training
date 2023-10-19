@@ -1,8 +1,5 @@
-
-
 function func() {
     let num = 4;
-
 
         return function() {
             if(num >= 0) {
@@ -14,7 +11,6 @@ function func() {
         }
 }
 
-
 let newFun1 = func();
 let newFun2 = func();
 
@@ -25,6 +21,3 @@ newFun1();
 newFun1();
 newFun1();
 newFun1();
-
-
-//newFun2()();
