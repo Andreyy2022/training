@@ -1,7 +1,5 @@
-let arr = [1, 2, 3, 4, 5];
+let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
 
-function func(num1, num2, num3, num4, num5) {
-	return num1 + num2 + num3 + num4 + num5;
-}
-
-console.log(func(...[1, 2, 3, 4, 5]));
+let arr  = ['a', ...arr1, 'b', 'c', ...arr2];
+console.log(arr);
