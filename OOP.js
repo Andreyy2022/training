@@ -1,20 +1,7 @@
-let func = (function func() {
-    let num = 1;
+let arr = [1, 2, 3, 4, 5];
 
-    return function() {
-        console.log(num);
-        num++;
-        if (num == 6) {
-            num = 0;
-        }
-    }
-})();
+function func(num1, num2, num3, num4, num5) {
+	return num1 + num2 + num3 + num4 + num5;
+}
 
-func();
-func();
-func();
-func();
-func();
-func();
-func();
-func();
+console.log(func(...[1, 2, 3, 4, 5]));
