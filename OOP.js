@@ -1,11 +1,7 @@
-function func(...nums) {
-    let sum = 0;
+let result = [ [1, 2, 3], [4, 5, 6], [7, 8, 9] ];
 
-    for (let num of nums) {
-        sum += num;
-    }
-
-    return sum / nums.length;
+function func(...arrs) {
+    return arrs;
 }
 
-console.log(func(3, 4, 5, 8, 1, 5));
+console.log(func(result));
