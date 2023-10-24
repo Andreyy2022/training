@@ -1,5 +1,4 @@
-function func(...arrs) {
-    return [].concat(...arrs);
-}
+let date = new Date(2025, 0, 1);
 
-console.log( func([1, 2, 3], [4, 5, 6], [7, 8, 9]) );
+console.log(date.getTime());
+console.log(date);
