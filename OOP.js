@@ -1,13 +1,25 @@
 "use strict";
 
-let elem = document.querySelector('#elem');
-elem.addEventListener('blur', parent);
-
-function parent() {
-	console.log(this.value); // что выведет?
+;(function() {
+	let elem = document.querySelector('#div1'); // первый див
 	
-	function child() {
-		console.log(this); // что выведет?
+	function func(num) {
+		return num * num; // возведем в квадрат
 	}
-	child();
-}
+	
+	elem.addEventListener('click', function() {
+		this.textContent = func(elem.textContent);
+	});
+})();
+
+;(function() {
+	let elem = document.querySelector('#div2'); // второй див
+	
+	function func(num) {
+		return num * num * num; // возведем в куб
+	}
+	
+	elem.addEventListener('click', function() {
+		this.textContent = func(elem.textContent);
+	});
+})();
