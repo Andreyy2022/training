@@ -14,7 +14,6 @@
 		return sum(arr, 3) / arr.length;
 	}
 
-	// вспомогательная функция
 	function sum(arr, pow) {
 		let res = 0;
 		
