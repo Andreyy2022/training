@@ -4,10 +4,23 @@ div {
     border: 1px solid black;
     margin: 50px;
     padding: 50px;
+    text-align: center;
     @media (orientation: landscape) {
         background: green;
     }
     @media (orientation: portrait)  {
         background: blue;
+    }
+}
+
+@media (orientation: portrait) and (min-width: 600px) {
+    div {
+        text-align: start;
+    }
+}
+
+@media (orientation: landscape), (min-width: 990px) {
+    div {
+        text-align: end;
     }
 }
